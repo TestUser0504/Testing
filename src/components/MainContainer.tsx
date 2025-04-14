@@ -8,7 +8,7 @@ import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
-import setSplitText from "./utils/splitText";
+// import setSplitText from "./utils/splitText";
 
 // const TechStack = lazy(() => import("./TechStack"));
 
@@ -19,7 +19,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
 
   useEffect(() => {
     const resizeHandler = () => {
-      setSplitText();
+      // setSplitText();
       setIsDesktopView(window.innerWidth > 1024);
     };
     resizeHandler();
