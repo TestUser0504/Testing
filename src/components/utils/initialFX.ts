@@ -68,12 +68,13 @@ const animateProperty = (
 ) => {
   return new Promise<void>((resolve) => {
     const startTime = performance.now();
-    const initialValues = elements.map(el => {
+    const initialValues: Record<string, any>[] = [];
+    elements.forEach(() => {
       const values: Record<string, any> = {};
       for (const prop in properties) {
         values[prop] = properties[prop];
       }
-      return values;
+      initialValues.push(values);
     });
     
     // Easing functions
@@ -126,59 +127,59 @@ const animateProperty = (
 };
 
 // Timeline-like class for chaining animations
-class AnimationTimeline {
-  private animations: Array<() => Promise<void>> = [];
+// class AnimationTimeline {
+//   private animations: Array<() => Promise<void>> = [];
   
-  fromTo(
-    elements: HTMLElement[],
-    fromProps: Record<string, any>,
-    toProps: { opacity?: number, y?: number, filter?: string, duration: number, ease: string, stagger?: number, delay?: number }
-  ) {
-    const { duration, ease, stagger = 0, delay = 0, ...targetValues } = toProps;
+//   fromTo(
+//     elements: HTMLElement[],
+//     fromProps: Record<string, any>,
+//     toProps: { opacity?: number, y?: number, filter?: string, duration: number, ease: string, stagger?: number, delay?: number }
+//   ) {
+//     const { duration, ease, stagger = 0, delay = 0, ...targetValues } = toProps;
     
-    this.animations.push(() => 
-      animateProperty(elements, fromProps, targetValues, duration, ease, stagger, delay)
-    );
+//     this.animations.push(() => 
+//       animateProperty(elements, fromProps, targetValues, duration, ease, stagger, delay)
+//     );
     
-    return this;
-  }
+//     return this;
+//   }
   
-  to(
-    elements: HTMLElement[],
-    toProps: { y?: number, duration: number, ease: string, stagger?: number, delay?: number }
-  ) {
-    const { duration, ease, stagger = 0, delay = 0, ...targetValues } = toProps;
+//   to(
+//     elements: HTMLElement[],
+//     toProps: { y?: number, duration: number, ease: string, stagger?: number, delay?: number }
+//   ) {
+//     const { duration, ease, stagger = 0, delay = 0, ...targetValues } = toProps;
     
-    // For 'to' animations, we'll use current computed values as the starting point
-    const currentProps: Record<string, any> = {};
-    if ('y' in targetValues) {
-      // Extract current y value from transform
-      currentProps.y = 0; // Default if not set
-    }
+//     // For 'to' animations, we'll use current computed values as the starting point
+//     const currentProps: Record<string, any> = {};
+//     if ('y' in targetValues) {
+//       // Extract current y value from transform
+//       currentProps.y = 0; // Default if not set
+//     }
     
-    this.animations.push(() =>
-      animateProperty(elements, currentProps, targetValues, duration, ease, stagger, delay)
-    );
+//     this.animations.push(() =>
+//       animateProperty(elements, currentProps, targetValues, duration, ease, stagger, delay)
+//     );
     
-    return this;
-  }
+//     return this;
+//   }
   
-  async play() {
-    for (const animation of this.animations) {
-      await animation();
-    }
-  }
-}
+//   async play() {
+//     for (const animation of this.animations) {
+//       await animation();
+//     }
+//   }
+// }
 
 // Function to create a repeating timeline
-const createRepeatingTimeline = (options: { repeat: number, repeatDelay: number }) => {
-  const timeline = new AnimationTimeline();
+// const createRepeatingTimeline = (options: { repeat: number, repeatDelay: number }) => {
+//   const timeline = new AnimationTimeline();
   
-  // To implement the repeating functionality, we'll need to wrap the animations
-  // and manually trigger them again after completion
+//   // To implement the repeating functionality, we'll need to wrap the animations
+//   // and manually trigger them again after completion
   
-  return timeline;
-};
+//   return timeline;
+// };
 
 export function initialFX() {
   document.body.style.overflowY = "auto";

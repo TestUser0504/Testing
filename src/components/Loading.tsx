@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./styles/Loading.css";
 import { useLoading } from "../context/LoadingProvider";
-import Marquee from "react-fast-marquee";
+// import Marquee from "react-fast-marquee";
 import "./styles/SpaceshipAnimation.css"; // Import the new CSS for spaceship animation
 
 const Loading = ({ percent }: { percent: number }) => {
