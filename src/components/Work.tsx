@@ -3,6 +3,7 @@ import WorkImage from "./WorkImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef, useEffect } from "react";
+import { FaExternalLinkAlt } from "react-icons/fa"; // Import the redirection icon
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,46 +14,64 @@ const Work = () => {
   const projects = [
     {
       id: 1,
-      title: "Portfolio Website",
-      category: "Web Development",
-      tools: "React, TypeScript, GSAP",
+      title: "Threads",
+      category: "Social Media App",
+      tools: "Next.js, Tailwind CSS",
       image: "/images/threads.png",
+      link: "https://threads-omega.vercel.app/",
+      outcome: "The app enabled robust community interaction and management, providing users with a comprehensive social media platform.",
+      learning: "I learned about the importance of dynamic user experiences in social media applications.",
+      contribution: "I developed a full‑stack social media app with advanced features, enhancing community engagement.",
+      date: "June 2024 – Jul 2024",
     },
     {
       id: 2,
-      title: "E-Commerce App",
-      category: "Mobile App",
-      tools: "React Native, Redux, Firebase",
+      title: "ResumeCraft",
+      category: "AI Resume Builder App",
+      tools: "React.js, Tailwind CSS",
       image: "/images/resumeai.png",
+      link: "https://resumecraftai.vercel.app/",
+      outcome: "The app provided users with an intuitive and efficient way to create professional resumes, improving their job application process.",
+      learning: "I learned about performance optimization and the integration of AI features to enhance functionality.",
+      contribution: "I led the project from conception to deployment, ensuring high performance and contributing an innovative tool to the job market.",
+      date: "Mar 2024 – May 2024",
     },
     {
       id: 3,
-      title: "3D Visualization",
-      category: "3D Graphics",
-      tools: "Three.js, Blender",
+      title: "Data Structure Learning Hub",
+      category: "Educational App",
+      tools: "HTML, CSS, JavaScript",
       image: "/images/data.png",
+      link: "https://sahasop.github.io/Data-Structures-Learning-Hub-main/",
+      outcome: "The website successfully provided an educational experience for students and educators, making complex data structure concepts easier to understand and visualize.",
+      learning: "I deepened my understanding of data structures and algorithm visualization, learning how to effectively convey complex concepts.",
+      contribution: "I developed a valuable educational tool that enhanced learning experiences, demonstrating my ability to combine technical knowledge with educational needs.",
+      date: "Oct 2023 – Dec 2024",
     },
-    {
-      id: 4,
-      title: "Blog Platform",
-      category: "Content Management",
-      tools: "Next.js, GraphQL, TailwindCSS",
-      image: "/images/blog-platform.webp",
-    },
-    {
-      id: 5,
-      title: "Chat Application",
-      category: "Real-Time Communication",
-      tools: "Socket.io, Node.js, MongoDB",
-      image: "/images/chat-app.webp",
-    },
-    {
-      id: 6,
-      title: "Fitness Tracker",
-      category: "Health & Fitness",
-      tools: "React, TypeScript, Chart.js",
-      image: "/images/fitness-tracker.webp",
-    },
+    // {
+    //   id: 4,
+    //   title: "Blog Platform",
+    //   category: "Content Management",
+    //   tools: "Next.js, GraphQL, TailwindCSS",
+    //   image: "/images/blog-platform.webp",
+    //   link: "https://blogplatform.example.com",
+    // },
+    // {
+    //   id: 5,
+    //   title: "Chat Application",
+    //   category: "Real-Time Communication",
+    //   tools: "Socket.io, Node.js, MongoDB",
+    //   image: "/images/chat-app.webp",
+    //   link: "https://chatapp.example.com",
+    // },
+    // {
+    //   id: 6,
+    //   title: "Fitness Tracker",
+    //   category: "Health & Fitness",
+    //   tools: "React, TypeScript, Chart.js",
+    //   image: "/images/fitness-tracker.webp",
+    //   link: "https://fitnesstracker.example.com",
+    // },
   ];
 
   useEffect(() => {
@@ -65,7 +84,7 @@ const Work = () => {
       if (!workFlex || !container) return 0;
 
       const scrollableDistance = workFlex.scrollWidth - container.clientWidth;
-      return Math.min(scrollableDistance, 6000);
+      return Math.min(scrollableDistance, 2000);
     };
 
     const tl = gsap.timeline({
@@ -105,8 +124,8 @@ const Work = () => {
   return (
     <div className="work-section" id="work">
       <div className="work-container section-container" ref={containerRef}>
-        <h2>
-          My <span>Work</span>
+      <h2>
+          My Work
         </h2>
         <div className="work-flex" ref={workFlexRef}>
           {projects.map((project) => (
@@ -122,7 +141,15 @@ const Work = () => {
                 <h4>Tools and features</h4>
                 <p>{project.tools}</p>
               </div>
-              <WorkImage image={project.image} alt={project.title} />
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-image-link"
+              >
+                <WorkImage image={project.image} alt={project.title} />
+                <FaExternalLinkAlt className="redirect-icon" />
+              </a>
             </div>
           ))}
         </div>
