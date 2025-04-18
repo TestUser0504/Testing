@@ -8,7 +8,7 @@ import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
 import WhatIDo from "./WhatIDo";
 import Work from "./Work";
-import Achievements from "./Achievements";
+// import Achievements from "./Achievements";
 // import setSplitText from "./utils/splitText";
 
 // const TechStack = lazy(() => import("./TechStack"));
@@ -42,7 +42,7 @@ const MainContainer = ({ children }: PropsWithChildren) => {
             <Landing>{!isDesktopView && children}</Landing>
             <About />
             <WhatIDo />
-            <Achievements />
+            {/* <Achievements /> */}
             <Career />
             <Work />
               {/* <Suspense fallback={<div>Loading....</div>}>
