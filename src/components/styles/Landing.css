@@ -238,7 +238,7 @@ h2.landing-info-h2 {
   z-index: 3;
   background-image: linear-gradient(
     0deg,
-    var(--backgroundColor) 40%,
+    var(--backgroundColor) 20%,
     rgba(0, 0, 0, 0) 110%
   );
   top: 0;
@@ -356,3 +356,4 @@ h2.landing-info-h2 {
     font-size: 75px;
   }
 }
+

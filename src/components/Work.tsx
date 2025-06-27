@@ -84,7 +84,9 @@ const Work = () => {
       if (!workFlex || !container) return 0;
 
       const scrollableDistance = workFlex.scrollWidth - container.clientWidth;
-      return Math.min(scrollableDistance, 2000);
+      // Make the max scroll distance responsive based on viewport width
+      const maxScroll = Math.max(800, window.innerWidth );
+      return Math.min(scrollableDistance, maxScroll);
     };
 
     const tl = gsap.timeline({
@@ -141,15 +143,33 @@ const Work = () => {
                 <h4>Tools and features</h4>
                 <p>{project.tools}</p>
               </div>
-              <a
+                <a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="work-image-link"
-              >
+                style={{ position: "relative", display: "inline-block" }}
+                title="Visit website"
+                >
                 <WorkImage image={project.image} alt={project.title} />
-                <FaExternalLinkAlt className="redirect-icon" />
-              </a>
+                <span
+                  style={{
+                  position: "absolute",
+                  bottom: "12px",
+                  right: "12px",
+                  background: "rgba(0,0,0,0.7)",
+                  color: "#fff",
+                  borderRadius: "50%",
+                  padding: "8px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
+                  }}
+                >
+                  <FaExternalLinkAlt size={18} />
+                </span>
+                </a>
             </div>
           ))}
         </div>

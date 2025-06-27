@@ -16,20 +16,19 @@ const Career = () => {
             <div className="career-info-in">
               <div className="career-role">
                 <h4>SDE Intern</h4>
-                <h5>Vector Consulting Group</h5>
+                <h5>ConnectWise</h5>
               </div>
-              <h3>Jan 2025</h3>
+              <h5>June 2025 - Present</h5>
             </div>
             <p>
               <div>
-                Implemented advanced UI features, animations, and improved user
-                interactions. Ensured code scalability by following modular and
-                reusable component architecture.
+                <span className="bullet-point">•</span> Isolated a key component
+                by creating a standalone pod, removed cross-dependencies, and
+                revamped its UI to match updated UX specs.
               </div>
               <div>
-                Conducted performance optimizations to improve rendering
-                efficiency. Collaborated with backend developers to ensure
-                seamless data flow.
+                <span className="bullet-point">•</span>  Wrote reliable test cases with 90%+ accuracy and coverage,
+                ensuring robust validation across all critical files.
               </div>
             </p>
           </div>
@@ -37,22 +36,26 @@ const Career = () => {
             <div className="career-info-in">
               <div className="career-role">
                 <h4>SDE Intern</h4>
-                <h5>ConnectWise</h5>
+                <h5>Vector Consulting Group</h5>
               </div>
-              <h3>July 2025</h3>
+              <h5>Jan 2025 - May 2025</h5>
             </div>
             <p>
               <div>
-                Currently working on developing scalable frontend solutions and
-                implementing responsive design principles.
+                <span className="bullet-point">•</span> Refactored 8+ components
+                into modular React units, cutting code duplication by 40% and
+                boosting maintainability.
               </div>
               <div>
-                Focusing on creating reusable React components and optimizing
-                application performance for enterprise software.{" "}
+                <span className="bullet-point">•</span> Built key features like
+                date filters, multi-tasking, and scheduling tools, improving
+                planning flexibility by 30%. Used Context API across 5+
+                components to streamline state handling and reduce UI bugs by
+                25%.
               </div>
             </p>
           </div>
-          <div className="career-info-box">
+          {/* <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
                 <h4>Open to Opportunities</h4>
@@ -71,7 +74,7 @@ const Career = () => {
                 applications with engaging user experiences.
               </div>
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
